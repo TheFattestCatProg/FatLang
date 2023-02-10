@@ -1,0 +1,41 @@
+package std:box;
+
+using std;
+using std:memory;
+
+struct box<T> {
+    T* _value;
+}
+
+box<T> box<T>() {
+    unsafe {
+        T* ptr = (T*)to_ptr(0usize);
+
+        return :box<T> { ptr };
+    }
+}
+
+box<T> box<T>(T value) {
+    unsafe {
+        T* ptr = malloc<T>();
+        *ptr = value;
+
+        return :box<T> { ptr };
+    }
+}
+
+T getValue<T>(box<T>* b) {
+    return unsafe *b._value;
+}
+
+T* getRef<T>(box<T>* b) {
+    return unsafe b._value;
+}
+
+operator ~<T>(box<T>* b) {
+    unsafe free( b._value );
+}
+
+box<T> operator =<T>(box<T>* b) {
+    return box(b.getValue());
+}

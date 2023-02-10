@@ -1,0 +1,15 @@
+package other;
+
+using std;
+
+struct point<T> {
+    internal T x;
+}
+
+point<T> point<T>(T x) {
+    return point<T> {x};
+}
+
+T getX<T>(point<T>* p) {
+    return p.x;
+}

@@ -1,0 +1,143 @@
+package std:io;
+using std:collections;
+using std;
+using std:memory;
+
+extern void __ext_print_i32(i32 v);
+extern void __ext_print_ui32(ui32 v);
+extern void __ext_print_i64(i64 v);
+extern void __ext_print_ui64(ui64 v);
+extern void __ext_print_f32(f32 v);
+extern void __ext_print_f64(f64 v);
+extern void __ext_print_char(char v);
+
+extern void __ext_println_i32(i32 v);
+extern void __ext_println_ui32(ui32 v);
+extern void __ext_println_i64(i64 v);
+extern void __ext_println_ui64(ui64 v);
+extern void __ext_println_f32(f32 v);
+extern void __ext_println_f64(f64 v);
+extern void __ext_println_char(char v);
+
+void print(i32 v) { unsafe __ext_print_i32(v); }
+void println(i32 v) { unsafe __ext_println_i32(v); }
+void print(ui32 v) { unsafe __ext_print_ui32(v); }
+void println(ui32 v) { unsafe __ext_println_ui32(v); }
+void print(i64 v) { unsafe __ext_print_i64(v); }
+void println(i64 v) { unsafe __ext_println_i64(v); }
+void print(ui64 v) { unsafe __ext_print_ui64(v); }
+void println(ui64 v) { unsafe __ext_println_ui64(v); }
+void print(f32 v) { unsafe __ext_print_f32(v); }
+void println(f32 v) { unsafe __ext_println_f32(v); }
+void print(f64 v) { unsafe __ext_print_f64(v); }
+void println(f64 v) { unsafe __ext_println_f64(v); }
+void print(char v) { unsafe __ext_print_char(v); }
+void println(char v) { unsafe __ext_println_char(v); }
+
+
+extern struct __c_char_arr {
+    void* ptr;
+    usize len;
+}
+
+__c_char_arr __convert_char_arr_to_c(st_arr<char>* arr) { return unsafe :__c_char_arr { (:void*) arr.pointer, arr.len }; }
+__c_char_arr __convert_char_arr_to_c(arr<char>* arr) { return unsafe :__c_char_arr { (:void*) arr.pointer, arr.len }; }
+
+extern void __ext_print_char_arr(__c_char_arr chars);
+void print(st_arr<char> str) { unsafe __ext_print_char_arr(__convert_char_arr_to_c(str)); }
+void print(arr<char>* str) { unsafe __ext_print_char_arr(__convert_char_arr_to_c(str)); }
+
+extern void __ext_println_char_arr(__c_char_arr chars);
+void println(st_arr<char> str) { unsafe __ext_println_char_arr(__convert_char_arr_to_c(str)); }
+void println(arr<char>* str) { unsafe __ext_println_char_arr(__convert_char_arr_to_c(str)); }
+
+struct stdout {}
+struct stdin {}
+
+stdout out() {
+    return :stdout {};
+}
+
+stdin in() {
+    return :stdin {};
+}
+
+st_arr<char> endl() {
+    return "\n";
+}
+
+stdout operator<<<T>(stdout out, T val) {
+    print(val);
+    return out;
+}
+
+stdout getout() {
+    return :stdout {};
+}
+
+extern i32 __ext_input_i32();
+extern ui32 __ext_input_ui32();
+extern i64 __ext_input_i64();
+extern ui64 __ext_input_ui64();
+extern f32 __ext_input_f32();
+extern f64 __ext_input_f64();
+extern char __ext_input_char();
+extern __c_char_arr __ext_input_string();
+
+i32 input_i32() { return unsafe __ext_input_i32(); }
+i32 input_i32(st_arr<char> msg) { print(msg); return unsafe __ext_input_i32(); }
+ui32 input_ui32() { return unsafe __ext_input_ui32(); }
+ui32 input_ui32(st_arr<char> msg) { print(msg); return unsafe __ext_input_ui32(); }
+i64 input_i64() { return unsafe __ext_input_i64(); }
+i64 input_i64(st_arr<char> msg) { print(msg); return unsafe __ext_input_i64(); }
+ui64 input_ui64() { return unsafe __ext_input_ui64(); }
+ui64 input_ui64(st_arr<char> msg) { print(msg); return unsafe __ext_input_ui64(); }
+f32 input_f32() { return unsafe __ext_input_f32(); }
+f32 input_f32(st_arr<char> msg) { print(msg); return unsafe __ext_input_f32(); }
+f64 input_f64() { return unsafe __ext_input_f64(); }
+f64 input_f64(st_arr<char> msg) { print(msg); return unsafe __ext_input_f64(); }
+char input_char() { return unsafe __ext_input_char(); }
+char input_char(st_arr<char> msg) { print(msg); return unsafe __ext_input_char(); }
+
+// returns array you must delete after
+arr<char> input_str() {
+    __c_char_arr chars = unsafe __ext_input_string();
+    return arr<char> { unsafe (:char*)chars.ptr, chars.len };
+}
+
+arr<char> input_str(st_arr<char> msg) {
+    print(msg);
+    __c_char_arr chars = unsafe __ext_input_string();
+    return arr<char> { unsafe (:char*)chars.ptr, chars.len };
+}
+
+stdin operator>> (stdin in, i32* v) {
+    *v = input_i32();
+    return in;
+}
+
+stdin operator>> (stdin in, ui32* v) {
+    *v = input_ui32();
+    return in;
+}
+
+stdin operator>> (stdin in, i64* v) {
+    *v = input_i64();
+    return in;
+}
+
+stdin operator>> (stdin in, ui64* v) {
+    *v = input_ui64();
+    return in;
+}
+
+stdin operator>> (stdin in, char* v) {
+    *v = input_char();
+    return in;
+}
+
+stdin operator>> (stdin in, arr<char>* v) {
+    v.delete(); // try clear for safety
+    *v = input_str();
+    return in;
+}

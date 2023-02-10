@@ -1,0 +1,376 @@
+package std;
+
+/*
+*   BASIC OPERATORS
+*/
+
+/*extern struct i32 {}
+extern struct ui32 {}
+extern struct i64 {}
+extern struct ui64 {}
+extern struct size {}
+extern struct usize {}
+extern struct f32 {}
+extern struct f64 {}
+extern struct char {}
+extern struct bool {}
+extern struct void {}*/
+
+extern i32 __ext_add_i32(i32 x, i32 y);
+extern i32 __ext_sub_i32(i32 x, i32 y);
+extern i32 __ext_mul_i32(i32 x, i32 y);
+extern i32 __ext_div_i32(i32 x, i32 y);
+extern i32 __ext_and_i32(i32 x, i32 y);
+extern i32 __ext_or_i32(i32 x, i32 y);
+extern i32 __ext_xor_i32(i32 x, i32 y);
+extern i32 __ext_mod_i32(i32 x, i32 y);
+extern i32 __ext_lshift_i32(i32 x, i32 y);
+extern i32 __ext_rshift_i32(i32 x, i32 y);
+extern bool __ext_less_i32(i32 x, i32 y);
+extern bool __ext_less_eq_i32(i32 x, i32 y);
+extern bool __ext_greater_i32(i32 x, i32 y);
+extern bool __ext_greater_eq_i32(i32 x, i32 y);
+extern bool __ext_eq_i32(i32 x, i32 y);
+extern bool __ext_not_eq_i32(i32 x, i32 y);
+
+extern ui32 __ext_add_ui32(ui32 x, ui32 y);
+extern ui32 __ext_sub_ui32(ui32 x, ui32 y);
+extern ui32 __ext_mul_ui32(ui32 x, ui32 y);
+extern ui32 __ext_div_ui32(ui32 x, ui32 y);
+extern ui32 __ext_and_ui32(ui32 x, ui32 y);
+extern ui32 __ext_or_ui32(ui32 x, ui32 y);
+extern ui32 __ext_xor_ui32(ui32 x, ui32 y);
+extern ui32 __ext_mod_ui32(ui32 x, ui32 y);
+extern ui32 __ext_lshift_ui32(ui32 x, ui32 y);
+extern ui32 __ext_rshift_ui32(ui32 x, ui32 y);
+extern bool __ext_less_ui32(ui32 x, ui32 y);
+extern bool __ext_less_eq_ui32(ui32 x, ui32 y);
+extern bool __ext_greater_ui32(ui32 x, ui32 y);
+extern bool __ext_greater_eq_ui32(ui32 x, ui32 y);
+extern bool __ext_eq_ui32(ui32 x, ui32 y);
+extern bool __ext_not_eq_ui32(ui32 x, ui32 y);
+
+extern i64 __ext_add_i64(i64 x, i64 y);
+extern i64 __ext_sub_i64(i64 x, i64 y);
+extern i64 __ext_mul_i64(i64 x, i64 y);
+extern i64 __ext_div_i64(i64 x, i64 y);
+extern i64 __ext_and_i64(i64 x, i64 y);
+extern i64 __ext_or_i64(i64 x, i64 y);
+extern i64 __ext_xor_i64(i64 x, i64 y);
+extern i64 __ext_mod_i64(i64 x, i64 y);
+extern i64 __ext_lshift_i64(i64 x, i64 y);
+extern i64 __ext_rshift_i64(i64 x, i64 y);
+extern bool __ext_less_i64(i64 x, i64 y);
+extern bool __ext_less_eq_i64(i64 x, i64 y);
+extern bool __ext_greater_i64(i64 x, i64 y);
+extern bool __ext_greater_eq_i64(i64 x, i64 y);
+extern bool __ext_eq_i64(i64 x, i64 y);
+extern bool __ext_not_eq_i64(i64 x, i64 y);
+
+extern ui64 __ext_add_ui64(ui64 x, ui64 y);
+extern ui64 __ext_sub_ui64(ui64 x, ui64 y);
+extern ui64 __ext_mul_ui64(ui64 x, ui64 y);
+extern ui64 __ext_div_ui64(ui64 x, ui64 y);
+extern ui64 __ext_and_ui64(ui64 x, ui64 y);
+extern ui64 __ext_or_ui64(ui64 x, ui64 y);
+extern ui64 __ext_xor_ui64(ui64 x, ui64 y);
+extern ui64 __ext_mod_ui64(ui64 x, ui64 y);
+extern ui64 __ext_lshift_ui64(ui64 x, ui64 y);
+extern ui64 __ext_rshift_ui64(ui64 x, ui64 y);
+extern bool __ext_less_ui64(ui64 x, ui64 y);
+extern bool __ext_less_eq_ui64(ui64 x, ui64 y);
+extern bool __ext_greater_ui64(ui64 x, ui64 y);
+extern bool __ext_greater_eq_ui64(ui64 x, ui64 y);
+extern bool __ext_eq_ui64(ui64 x, ui64 y);
+extern bool __ext_not_eq_ui64(ui64 x, ui64 y);
+
+/*extern size __ext_add_size(size x, size y);
+extern size __ext_sub_size(size x, size y);
+extern size __ext_mul_size(size x, size y);
+extern size __ext_div_size(size x, size y);
+extern size __ext_and_size(size x, size y);
+extern size __ext_or_size(size x, size y);
+extern size __ext_xor_size(size x, size y);
+extern size __ext_mod_size(size x, size y);
+extern bool __ext_less_size(size x, size y);
+extern bool __ext_less_eq_size(size x, size y);
+extern bool __ext_greater_size(size x, size y);
+extern bool __ext_greater_eq_size(size x, size y);
+extern bool __ext_eq_size(size x, size y);
+extern bool __ext_not_eq_size(size x, size y);*/
+
+extern usize __ext_add_usize(usize x, usize y);
+extern usize __ext_sub_usize(usize x, usize y);
+extern usize __ext_mul_usize(usize x, usize y);
+extern usize __ext_div_usize(usize x, usize y);
+extern usize __ext_and_usize(usize x, usize y);
+extern usize __ext_or_usize(usize x, usize y);
+extern usize __ext_xor_usize(usize x, usize y);
+extern usize __ext_mod_usize(usize x, usize y);
+extern usize __ext_lshift_usize(usize x, usize y);
+extern usize __ext_rshift_usize(usize x, usize y);
+extern bool __ext_less_usize(usize x, usize y);
+extern bool __ext_less_eq_usize(usize x, usize y);
+extern bool __ext_greater_usize(usize x, usize y);
+extern bool __ext_greater_eq_usize(usize x, usize y);
+extern bool __ext_eq_usize(usize x, usize y);
+extern bool __ext_not_eq_usize(usize x, usize y);
+
+extern bool __ext_and_bool(bool x, bool y);
+extern bool __ext_or_bool(bool x, bool y);
+extern bool __ext_eq_bool(bool x, bool y);
+extern bool __ext_not_eq_bool(bool x, bool y);
+extern bool __ext_not_bool(bool x);
+
+extern i32 __ext_unary_minus_i32(i32 x);
+extern i64 __ext_unary_minus_i64(i64 x);
+extern f32 __ext_unary_minus_f32(f32 x);
+extern f64 __ext_unary_minus_f64(f64 x);
+//extern size __ext_unary_minus(size x);
+
+
+extern ui32 __ext_cast_i32_ui32(i32 v);
+extern i64 __ext_cast_i32_i64(i32 v);
+extern ui64 __ext_cast_i32_ui64(i32 v);
+//extern size __ext_cast_i32_size(i32 v);
+extern usize __ext_cast_i32_usize(i32 v);
+extern f32 __ext_cast_i32_f32(i32 v);
+extern f64 __ext_cast_i32_f64(i32 v);
+
+extern i32 __ext_cast_ui32_i32(ui32 v);
+extern i64 __ext_cast_ui32_i64(ui32 v);
+extern ui64 __ext_cast_ui32_ui64(ui32 v);
+//extern size __ext_cast_ui32_size(ui32 v);
+extern usize __ext_cast_ui32_usize(ui32 v);
+extern f32 __ext_cast_ui32_f32(ui32 v);
+extern f64 __ext_cast_ui32_f64(ui32 v);
+
+extern i32 __ext_cast_i64_i32(i64 v);
+extern ui32 __ext_cast_i64_ui32(i64 v);
+extern ui64 __ext_cast_i64_ui64(i64 v);
+//extern size __ext_cast_i64_size(i64 v);
+extern usize __ext_cast_i64_usize(i64 v);
+extern f32 __ext_cast_i64_f32(i64 v);
+extern f64 __ext_cast_i64_f64(i64 v);
+
+extern i32 __ext_cast_ui64_i32(ui64 v);
+extern ui32 __ext_cast_ui64_ui32(ui64 v);
+extern i64 __ext_cast_ui64_i64(ui64 v);
+//extern size __ext_cast_ui64_size(ui64 v);
+extern usize __ext_cast_ui64_usize(ui64 v);
+extern f32 __ext_cast_ui64_f32(ui64 v);
+extern f64 __ext_cast_ui64_f64(ui64 v);
+
+/*extern i32 __ext_cast_size_i32(size v);
+extern ui32 __ext_cast_size_ui32(size v);
+extern i64 __ext_cast_size_i64(size v);
+extern ui64 __ext_cast_size_ui64(size v);
+extern usize __ext_cast_size_usize(size v);
+extern f32 __ext_cast_size_f32(size v);
+extern f64 __ext_cast_size_f64(size v);*/
+
+extern i32 __ext_cast_usize_i32(usize v);
+extern ui32 __ext_cast_usize_ui32(usize v);
+extern i64 __ext_cast_usize_i64(usize v);
+extern ui64 __ext_cast_usize_ui64(usize v);
+//extern size __ext_cast_usize_size(usize v);
+extern f32 __ext_cast_usize_f32(usize v);
+extern f64 __ext_cast_usize_f64(usize v);
+
+extern f64 __ext_cast_f32_f64(f32 v);
+extern i32 __ext_cast_f32_i32(f32 v);
+extern ui32 __ext_cast_f32_ui32(f32 v);
+extern i64 __ext_cast_f32_i64(f32 v);
+extern ui64 __ext_cast_f32_ui64(f32 v);
+//extern size __ext_cast_f32_size(f32 v);
+extern usize __ext_cast_f32_usize(f32 v);
+
+extern f32 __ext_cast_f64_f32(f64 v);
+extern i32 __ext_cast_f64_i32(f64 v);
+extern ui32 __ext_cast_f64_ui32(f64 v);
+extern i64 __ext_cast_f64_i64(f64 v);
+extern ui64 __ext_cast_f64_ui64(f64 v);
+//extern size __ext_cast_f64_size(f64 v);
+extern usize __ext_cast_f64_usize(f64 v);
+
+
+i32 operator+ (i32 x, i32 y) { return unsafe __ext_add_i32(x, y); }
+i32 operator- (i32 x, i32 y) { return unsafe __ext_sub_i32(x, y); }
+i32 operator* (i32 x, i32 y) { return unsafe __ext_mul_i32(x, y); }
+i32 operator/ (i32 x, i32 y) { return unsafe __ext_div_i32(x, y); }
+i32 operator& (i32 x, i32 y) { return unsafe __ext_and_i32(x, y); }
+i32 operator| (i32 x, i32 y) { return unsafe __ext_or_i32(x, y); }
+i32 operator^ (i32 x, i32 y) { return unsafe __ext_xor_i32(x, y); }
+i32 operator% (i32 x, i32 y) { return unsafe __ext_mod_i32(x, y); }
+i32 operator<< (i32 x, i32 y) { return unsafe __ext_lshift_i32(x, y); }
+i32 operator>> (i32 x, i32 y) { return unsafe __ext_rshift_i32(x, y); }
+bool operator< (i32 x, i32 y) { return unsafe __ext_less_i32(x, y); }
+bool operator<= (i32 x, i32 y) { return unsafe __ext_less_eq_i32(x, y); }
+bool operator> (i32 x, i32 y) { return unsafe __ext_greater_i32(x, y); }
+bool operator>= (i32 x, i32 y) { return unsafe __ext_greater_eq_i32(x, y); }
+bool operator== (i32 x, i32 y) { return unsafe __ext_eq_i32(x, y); }
+bool operator!= (i32 x, i32 y) { return unsafe __ext_not_eq_i32(x, y); }
+
+ui32 operator+ (ui32 x, ui32 y) { return unsafe __ext_add_ui32(x, y); }
+ui32 operator- (ui32 x, ui32 y) { return unsafe __ext_sub_ui32(x, y); }
+ui32 operator* (ui32 x, ui32 y) { return unsafe __ext_mul_ui32(x, y); }
+ui32 operator/ (ui32 x, ui32 y) { return unsafe __ext_div_ui32(x, y); }
+ui32 operator& (ui32 x, ui32 y) { return unsafe __ext_and_ui32(x, y); }
+ui32 operator| (ui32 x, ui32 y) { return unsafe __ext_or_ui32(x, y); }
+ui32 operator^ (ui32 x, ui32 y) { return unsafe __ext_xor_ui32(x, y); }
+ui32 operator% (ui32 x, ui32 y) { return unsafe __ext_mod_ui32(x, y); }
+ui32 operator<< (ui32 x, ui32 y) { return unsafe __ext_lshift_ui32(x, y); }
+ui32 operator>> (ui32 x, ui32 y) { return unsafe __ext_rshift_ui32(x, y); }
+bool operator< (ui32 x, ui32 y) { return unsafe __ext_less_ui32(x, y); }
+bool operator<= (ui32 x, ui32 y) { return unsafe __ext_less_eq_ui32(x, y); }
+bool operator> (ui32 x, ui32 y) { return unsafe __ext_greater_ui32(x, y); }
+bool operator>= (ui32 x, ui32 y) { return unsafe __ext_greater_eq_ui32(x, y); }
+bool operator== (ui32 x, ui32 y) { return unsafe __ext_eq_ui32(x, y); }
+bool operator!= (ui32 x, ui32 y) { return unsafe __ext_not_eq_ui32(x, y); }
+
+i64 operator+ (i64 x, i64 y) { return unsafe __ext_add_i64(x, y); }
+i64 operator- (i64 x, i64 y) { return unsafe __ext_sub_i64(x, y); }
+i64 operator* (i64 x, i64 y) { return unsafe __ext_mul_i64(x, y); }
+i64 operator/ (i64 x, i64 y) { return unsafe __ext_div_i64(x, y); }
+i64 operator& (i64 x, i64 y) { return unsafe __ext_and_i64(x, y); }
+i64 operator| (i64 x, i64 y) { return unsafe __ext_or_i64(x, y); }
+i64 operator^ (i64 x, i64 y) { return unsafe __ext_xor_i64(x, y); }
+i64 operator% (i64 x, i64 y) { return unsafe __ext_mod_i64(x, y); }
+i64 operator<< (i64 x, i64 y) { return unsafe __ext_lshift_i64(x, y); }
+i64 operator>> (i64 x, i64 y) { return unsafe __ext_rshift_i64(x, y); }
+bool operator< (i64 x, i64 y) { return unsafe __ext_less_i64(x, y); }
+bool operator<= (i64 x, i64 y) { return unsafe __ext_less_eq_i64(x, y); }
+bool operator> (i64 x, i64 y) { return unsafe __ext_greater_i64(x, y); }
+bool operator>= (i64 x, i64 y) { return unsafe __ext_greater_eq_i64(x, y); }
+bool operator== (i64 x, i64 y) { return unsafe __ext_eq_i64(x, y); }
+bool operator!= (i64 x, i64 y) { return unsafe __ext_not_eq_i64(x, y); }
+
+ui64 operator+ (ui64 x, ui64 y) { return unsafe __ext_add_ui64(x, y); }
+ui64 operator- (ui64 x, ui64 y) { return unsafe __ext_sub_ui64(x, y); }
+ui64 operator* (ui64 x, ui64 y) { return unsafe __ext_mul_ui64(x, y); }
+ui64 operator/ (ui64 x, ui64 y) { return unsafe __ext_div_ui64(x, y); }
+ui64 operator& (ui64 x, ui64 y) { return unsafe __ext_and_ui64(x, y); }
+ui64 operator| (ui64 x, ui64 y) { return unsafe __ext_or_ui64(x, y); }
+ui64 operator^ (ui64 x, ui64 y) { return unsafe __ext_xor_ui64(x, y); }
+ui64 operator% (ui64 x, ui64 y) { return unsafe __ext_mod_ui64(x, y); }
+ui64 operator<< (ui64 x, ui64 y) { return unsafe __ext_lshift_ui64(x, y); }
+ui64 operator>> (ui64 x, ui64 y) { return unsafe __ext_rshift_ui64(x, y); }
+bool operator< (ui64 x, ui64 y) { return unsafe __ext_less_ui64(x, y); }
+bool operator<= (ui64 x, ui64 y) { return unsafe __ext_less_eq_ui64(x, y); }
+bool operator> (ui64 x, ui64 y) { return unsafe __ext_greater_ui64(x, y); }
+bool operator>= (ui64 x, ui64 y) { return unsafe __ext_greater_eq_ui64(x, y); }
+bool operator== (ui64 x, ui64 y) { return unsafe __ext_eq_ui64(x, y); }
+bool operator!= (ui64 x, ui64 y) { return unsafe __ext_not_eq_ui64(x, y); }
+
+/*size operator+ (size x, size y) { return unsafe __ext_add_size(x, y); }
+size operator- (size x, size y) { return unsafe __ext_sub_size(x, y); }
+size operator* (size x, size y) { return unsafe __ext_mul_size(x, y); }
+size operator/ (size x, size y) { return unsafe __ext_div_size(x, y); }
+size operator& (size x, size y) { return unsafe __ext_and_size(x, y); }
+size operator| (size x, size y) { return unsafe __ext_or_size(x, y); }
+size operator^ (size x, size y) { return unsafe __ext_xor_size(x, y); }
+size operator% (size x, size y) { return unsafe __ext_mod_size(x, y); }
+bool operator< (size x, size y) { return unsafe __ext_less_size(x, y); }
+bool operator<= (size x, size y) { return unsafe __ext_less_eq_size(x, y); }
+bool operator> (size x, size y) { return unsafe __ext_greater_size(x, y); }
+bool operator>= (size x, size y) { return unsafe __ext_greater_eq_size(x, y); }
+bool operator== (size x, size y) { return unsafe __ext_eq_size(x, y); }
+bool operator!= (size x, size y) { return unsafe __ext_not_eq_size(x, y); }*/
+
+usize operator+ (usize x, usize y) { return unsafe __ext_add_usize(x, y); }
+usize operator- (usize x, usize y) { return unsafe __ext_sub_usize(x, y); }
+usize operator* (usize x, usize y) { return unsafe __ext_mul_usize(x, y); }
+usize operator/ (usize x, usize y) { return unsafe __ext_div_usize(x, y); }
+usize operator& (usize x, usize y) { return unsafe __ext_and_usize(x, y); }
+usize operator| (usize x, usize y) { return unsafe __ext_or_usize(x, y); }
+usize operator^ (usize x, usize y) { return unsafe __ext_xor_usize(x, y); }
+usize operator% (usize x, usize y) { return unsafe __ext_mod_usize(x, y); }
+usize operator<< (usize x, usize y) { return unsafe __ext_lshift_usize(x, y); }
+usize operator>> (usize x, usize y) { return unsafe __ext_rshift_usize(x, y); }
+bool operator< (usize x, usize y) { return unsafe __ext_less_usize(x, y); }
+bool operator<= (usize x, usize y) { return unsafe __ext_less_eq_usize(x, y); }
+bool operator> (usize x, usize y) { return unsafe __ext_greater_usize(x, y); }
+bool operator>= (usize x, usize y) { return unsafe __ext_greater_eq_usize(x, y); }
+bool operator== (usize x, usize y) { return unsafe __ext_eq_usize(x, y); }
+bool operator!= (usize x, usize y) { return unsafe __ext_not_eq_usize(x, y); }
+
+bool operator& (bool x, bool y) { return unsafe __ext_and_bool(x, y); }
+bool operator| (bool x, bool y) { return unsafe __ext_or_bool(x, y); }
+bool operator== (bool x, bool y) { return unsafe __ext_eq_bool(x, y); }
+bool operator!= (bool x, bool y) { return unsafe __ext_not_eq_bool(x, y); }
+
+i32 operator-() (i32 x) { return unsafe __ext_unary_minus_i32(x); }
+i64 operator-() (i64 x) { return unsafe __ext_unary_minus_i64(x); }
+f32 operator-() (f32 x) { return unsafe __ext_unary_minus_f32(x); }
+f64 operator-() (f64 x) { return unsafe __ext_unary_minus_f64(x); }
+//size operator-() (size x) { return unsafe __ext_unary_minus(x); }
+bool operator!() (bool x) { return unsafe __ext_not_bool(x); }
+
+i32 operator() (i32 v) { return v; }
+ui32 operator() (i32 v) { return unsafe __ext_cast_i32_ui32(v); }
+i64 operator() (i32 v) { return unsafe __ext_cast_i32_i64(v); }
+ui64 operator() (i32 v) { return unsafe __ext_cast_i32_ui64(v); }
+//size operator() (i32 v) { return unsafe __ext_cast_i32_size(v); }
+usize operator() (i32 v) { return unsafe __ext_cast_i32_usize(v); }
+f32 operator() (i32 v) { return unsafe __ext_cast_i32_f32(v); }
+f64 operator() (i32 v) { return unsafe __ext_cast_i32_f64(v); }
+
+i32 operator() (ui32 v) { return unsafe __ext_cast_ui32_i32(v); }
+ui32 operator() (ui32 v) { return v; }
+i64 operator() (ui32 v) { return unsafe __ext_cast_ui32_i64(v); }
+ui64 operator() (ui32 v) { return unsafe __ext_cast_ui32_ui64(v); }
+//size operator() (ui32 v) { return unsafe __ext_cast_ui32_size(v); }
+usize operator() (ui32 v) { return unsafe __ext_cast_ui32_usize(v); }
+f32 operator() (ui32 v) { return unsafe __ext_cast_ui32_f32(v); }
+f64 operator() (ui32 v) { return unsafe __ext_cast_ui32_f64(v); }
+
+i32 operator() (i64 v) { return unsafe __ext_cast_i64_i32(v); }
+ui32 operator() (i64 v) { return unsafe __ext_cast_i64_ui32(v); }
+i64 operator() (i64 v) { return v; }
+ui64 operator() (i64 v) { return unsafe __ext_cast_i64_ui64(v); }
+//size operator() (i64 v) { return unsafe __ext_cast_i64_size(v); }
+usize operator() (i64 v) { return unsafe __ext_cast_i64_usize(v); }
+f32 operator() (i64 v) { return unsafe __ext_cast_i64_f32(v); }
+f64 operator() (i64 v) { return unsafe __ext_cast_i64_f64(v); }
+
+i32 operator() (ui64 v) { return unsafe __ext_cast_ui64_i32(v); }
+ui32 operator() (ui64 v) { return unsafe __ext_cast_ui64_ui32(v); }
+i64 operator() (ui64 v) { return unsafe __ext_cast_ui64_i64(v); }
+ui64 operator() (ui64 v) { return v; }
+//size operator() (ui64 v) { return unsafe __ext_cast_ui64_size(v); }
+usize operator() (ui64 v) { return unsafe __ext_cast_ui64_usize(v); }
+f32 operator() (ui64 v) { return unsafe __ext_cast_ui64_f32(v); }
+f64 operator() (ui64 v) { return unsafe __ext_cast_ui64_f64(v); }
+
+/*i32 operator() (size v) { return unsafe __ext_cast_size_i32(v); }
+ui32 operator() (size v) { return unsafe __ext_cast_size_ui32(v); }
+i64 operator() (size v) { return unsafe __ext_cast_size_i64(v); }
+ui64 operator() (size v) { return unsafe __ext_cast_size_ui64(v); }
+size operator() (size v) { return v; }
+usize operator() (size v) { return unsafe __ext_cast_size_usize(v); }
+f32 operator() (size v) { return unsafe __ext_cast_size_f32(v); }
+f64 operator() (size v) { return unsafe __ext_cast_size_f64(v); }*/
+
+i32 operator() (usize v) { return unsafe __ext_cast_usize_i32(v); }
+ui32 operator() (usize v) { return unsafe __ext_cast_usize_ui32(v); }
+i64 operator() (usize v) { return unsafe __ext_cast_usize_i64(v); }
+ui64 operator() (usize v) { return unsafe __ext_cast_usize_ui64(v); }
+//size operator() (usize v) { return unsafe __ext_cast_usize_size(v); }
+usize operator() (usize v) { return v; }
+f32 operator() (usize v) { return unsafe __ext_cast_usize_f32(v); }
+f64 operator() (usize v) { return unsafe __ext_cast_usize_f64(v); }
+
+
+/*
+*   BASIC FUNCTIONS
+*/
+
+extern void __ext_exit(i32 code);
+void exit(i32 code) {
+    unsafe { __ext_exit(code); }
+}
+
+void panic(std:collections:st_arr<char> msg) {
+    io:println(msg);
+    exit(-1);
+}

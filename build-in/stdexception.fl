@@ -1,0 +1,22 @@
+package std:exception;
+using std:collections;
+using std:io;
+using std;
+
+struct error<T> {
+    T value;
+    bool success;
+}
+
+error<T> success<T> (T val) {
+    return error<T> { val, true };
+}
+
+error<T> exception<T> () {
+    unsafe {
+        error<T> e;
+        e.success = false;
+        return e;
+    }
+}
+

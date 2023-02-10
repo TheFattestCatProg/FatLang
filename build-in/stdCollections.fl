@@ -1,0 +1,78 @@
+package std:collections;
+using std;
+using std:memory;
+using std:exception;
+
+/*
+*
+*   basic array structure
+*   c-lang analog:
+*       struct array {
+*           void* ptr;
+*           usize_t len;
+*       }
+*
+*/
+
+// use for constants because you needn't free it
+struct st_arr<T> {
+    T* pointer;
+    usize len;
+}
+
+error<T> get<T>(st_arr<T>* arr, usize i) {
+    if i < arr.len {
+        return unsafe success( *(T*)to_ptr( to_usize((void*)arr.pointer) + i * sizeof(T) ) );
+    }
+    return exception<T>();
+}
+
+
+// use for dynamic values (aka input_string) because it needs free
+struct arr<T> {
+    T* pointer;
+    usize len;
+}
+
+arr<T> arr<T> (usize l) {
+    return :arr<T> { unsafe malloc<T>(l), l };
+}
+
+arr<T> create<T> () {
+    return :arr<T> { unsafe (T*)to_ptr(0usize), 0usize };
+}
+
+void delete<T>(arr<T>* a) {
+    unsafe {
+        if to_usize((void*)a.pointer) != 0usize {
+            free(a.pointer);
+        }
+    }
+}
+
+operator ~<T>(arr<T>* a) {
+    delete<T>(a);
+}
+
+T operator[] <T>(const st_arr<T>* a, usize i) {
+    var e = a.get(i);
+
+    if !(e.success) {
+        panic("can't get index from st_array");
+    }
+
+    return e.value;
+}
+
+error<T*> get<T> (arr<T>* arr, usize i) {
+    unsafe {
+        if i < arr.len {
+            return success (
+                (T*)to_ptr( to_usize((void*)arr.pointer) + i * sizeof(T) )
+            );
+        }
+        else {
+            return exception<T*>();
+        }
+    }
+}

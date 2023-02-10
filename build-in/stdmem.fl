@@ -1,0 +1,35 @@
+package std:memory;
+using std;
+using std:exception;
+/*
+*   lot of unsafe code
+*/
+
+extern void* __ext_malloc(usize s);
+
+unsafe T* malloc<T>() {
+    void* addr = __ext_malloc(sizeof(T));
+    return (T*)addr;
+}
+
+unsafe T* malloc<T>(usize count) {
+    void* addr = __ext_malloc(sizeof(T) * count);
+    return (T*)addr;
+}
+
+extern void __ext_free(:void* addr);
+
+unsafe void free<T> (T* ptr) {
+    __ext_free( (:void*)ptr );
+}
+
+extern usize __ext_cast_voidptr_usize(void* p);
+extern void* __ext_cast_usize_voidptr(usize addr);
+
+unsafe void* to_ptr(usize addr) {
+    return __ext_cast_usize_voidptr(addr);
+}
+
+unsafe usize to_usize(void* ptr) {
+    return __ext_cast_voidptr_usize(ptr);
+}
