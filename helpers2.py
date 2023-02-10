@@ -2629,6 +2629,8 @@ class PointerGetExpression(Expression):
         self.expr.set_body(body)
 
     def get_out_type(self):
+        if self.type is None:
+            self.calc_type()
         self.type.set_immutable()
         return self.type
 
